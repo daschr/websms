@@ -1,0 +1,20 @@
+{
+"Addr":"0.0.0.0",
+"Port":8080,
+"Apikey":"secret_key",
+"Verbose":false,
+"NUM":"nummer",
+"LIST":"liste",
+"TEXT":"text",
+"DATE":"datum",
+"SENDER":"absender",
+"APIKEY":"key",
+"TIMEFORMAT":"20060102-1504",
+"TIMEZONE":"Europe/Berlin",
+
+"SENDSMS":"/path/to/sendsms",
+"LOGCMD":"/path/to/logger",
+"ERRPREFIX":"***",
+"LOGTIMEFORMAT":"15:04-02 01 2006"
+
+}
