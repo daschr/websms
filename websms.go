@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os/exec"
+	"net/url"
 	"bytes"
 	"io"
 	"os"
@@ -159,7 +160,8 @@ func sms_api(config *Config, smsqueue *SMSQueue,c http.ResponseWriter, r *http.R
 	query:=r.URL.Query()
 	lex,_:=regexp.Compile(fmt.Sprintf("%s=[^&]*",(*config).LIST))
 	if subs:=lex.FindString(r.URL.RawQuery); len(subs) !=0{
-		query[(*config).LIST][0]=strings.Split(subs,"=")[1]
+		unesc,_:=url.QueryUnescape(subs);
+		query[(*config).LIST][0]=strings.Split(unesc,"=")[1]
 	}
 	if !(con(query,(*config).APIKEY) && query[(*config).APIKEY][0] == (*config).Apikey){
 		wr_resp(c,400,fmt.Sprint("Wrong ",(*config).APIKEY))
